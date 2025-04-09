@@ -13,5 +13,6 @@ ENV PYTHONUNBUFFERED=1
 
 # Ejecuta migraciones y servidor
 WORKDIR /app/backend
+ENV DJANGO_SETTINGS_MODULE=backend.settings
 RUN python manage.py collectstatic --noinput
 CMD gunicorn backend.wsgi:application --bind 0.0.0.0:${PORT:-8000}
