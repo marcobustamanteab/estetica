@@ -4,5 +4,5 @@ nixPkgs = ["python39", "gcc", "postgresql"]
 [phases.install]
 cmds = ["cd backend && pip install -r requirements.txt"]
 
-# [phases.build]
-# cmds = ["cd backend && DJANGO_SETTINGS_MODULE=backend.settings python manage.py collectstatic --noinput"]
+[phases.build]
+cmds = ["cd backend && python manage.py collectstatic --noinput || echo 'Skipping collectstatic'"]
